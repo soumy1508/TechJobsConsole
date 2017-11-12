@@ -58,6 +58,36 @@ namespace TechJobsConsole
             return jobs;
         }
 
+
+        public static List<Dictionary<string, string>> FindByValueSoumya(string value)
+        {
+            // load data, if not already loaded
+            LoadData();
+
+            List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
+
+            foreach (Dictionary<string, string> jobrow in AllJobs)
+            {
+                bool valuefound = false;
+                foreach (KeyValuePair<string, string> choice in jobrow)
+                {
+                    if (!valuefound)
+                    {
+                        string aValue = (jobrow[choice.Key]).ToString().ToLower();
+                        if (aValue.Contains(value.ToString().ToLower()))
+                        {
+                            jobs.Add(jobrow);
+                            valuefound = true;
+                        }
+                    }
+
+                }
+
+            }
+
+            return jobs;
+        }
+
         /*
          * Load and parse data from job_data.csv
          */
