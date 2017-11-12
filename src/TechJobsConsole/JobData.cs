@@ -59,7 +59,7 @@ namespace TechJobsConsole
         }
 
 
-        public static List<Dictionary<string, string>> FindByValueSoumya(string value)
+        public static List<Dictionary<string, string>> FindByValue(string value)
         {
             // load data, if not already loaded
             LoadData();
